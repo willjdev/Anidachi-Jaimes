@@ -1,5 +1,6 @@
 import React from 'react'
 import {GiFluffyWing} from "react-icons/gi"
+import CartWidget from './CartWidget'
 
 function NavBar () {
     let Links = [
@@ -10,7 +11,7 @@ function NavBar () {
     ]
 
     return (<>
-        <nav className='shadow-md w-full fixed top-0 left-0'>
+        <nav className='shadow-md w-full top-0 left-0'>
             <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
                 <div className='font-bold text-2x1 cursor-pointer flex items-center text-gray-800'>
                     <span className='text-3x1 text-indigo-600 mr-1 pt-2'>
@@ -26,6 +27,7 @@ function NavBar () {
                             </li>
                         ))
                     }
+                    <div className='md:ml-8'><CartWidget compra={2} /></div>
                 </ul>
             </div>
         </nav>
