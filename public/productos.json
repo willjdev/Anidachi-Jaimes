@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "name": "Bulbasaur",
+        "description": "Este Pokémon nace con una semilla en el lomo, que brota con el paso del tiempo",
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+        "price": 25
+    }
+]
