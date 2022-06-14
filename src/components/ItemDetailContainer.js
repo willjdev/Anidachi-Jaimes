@@ -14,7 +14,7 @@ function ItemDetailContainer() {
       })
       .then((response) => response.json())
       .then((data) => {
-        setProducto(data);
+        setProducto(data.find((item) => item.id == 5));
         setLoading(false)
       })
       .catch((e) => {
@@ -28,7 +28,7 @@ function ItemDetailContainer() {
   return (
     <>
     <div>{loading && "Loading..."}</div>
-    <div>
+    <div className='w-full h-screen bg-violet-600 flex flex-col items-center justify-center'>
       <ItemDetail producto={producto}/>
     </div>
     </>
