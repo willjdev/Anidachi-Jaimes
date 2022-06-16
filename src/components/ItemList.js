@@ -3,7 +3,7 @@ import Item from './Item'
 export default function ItemList({pokemon}) {
   return (
     <div className='flex flex-row flex-wrap items-center justify-around gap-3 max-w-5xl my-3 px-2'>
-        {pokemon?.map(poke => <Item key={poke.id}  pokeNombre={poke.name}  pokeDescripcion={poke.description} pokeImagen={poke.image}/>)}
+        {pokemon?.map(poke => <Item key={poke.id}  pokeId={poke.id} pokeNombre={poke.name}  pokeDescripcion={poke.description} pokeImagen={poke.image}/>)}
     </div>
 
   )
