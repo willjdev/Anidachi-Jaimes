@@ -129,9 +129,7 @@ let productos = [
 
 function ItemListContainer() {
 
-  /* const onAdd = (stock, cant) => {
-    stock === 0 ?  alert("No hay stock del producto") : alert(`Añadido a carrito: ${cant}`);
-  } */
+  
   const {id} = useParams();
 
   const [pokemon, setPokemon] = useState([]);
@@ -172,11 +170,6 @@ contenido
       <div className='flex flex-col items-center'>
         <ItemList pokemon={pokemon} />
       </div>
-      {/* <div className='flex flex-col items-center justify-around'>
-          <h1 className='flex justify-center items-center text-yellow-600'>{greeting}</h1>
-          <ItemCount initial={1} stock={8} onAdd={onAdd} />
-        </div> */}
-        
       
     </>
   )

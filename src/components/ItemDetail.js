@@ -1,7 +1,12 @@
 import React from 'react'
+import ItemCount from './ItemCount'
 
 export default function ItemDetail({producto}) {
-    const {id, name, description, weight, height, width, no, image, price} = producto;
+    const {id, name, description, weight, height, width, stock, image, price} = producto;
+
+    const onAdd = (stock, cant) => {
+    stock === 0 ?  alert("No hay stock del producto") : alert(`Añadido a carrito: ${cant}`);
+  }
 
   return (
     <section className='w-3/4 h-5/6 bg-white shadow-md flex'>
@@ -27,10 +32,13 @@ export default function ItemDetail({producto}) {
             <div className='w-full h-1/4 text-sm font-medium'>Peso: <span className='font-normal'>{weight}</span></div>
             <div className='w-full h-1/4 text-sm font-medium'>Alto:  <span className='font-normal'>{height}</span></div>
             <div className='w-full h-1/4 text-sm font-medium'>Ancho:  <span className='font-normal'>{width}</span></div>
-            <div className='w-full h-1/4 text-sm font-medium'>Lote:  <span className='font-normal'>{no}</span></div>
+            <div className='w-full h-1/4 text-sm font-medium'>Stock:  <span className='font-normal'>{stock}</span></div>
           </div>
         </div>
+        <div className='flex '>
         <button className='w-fit h-fit p-2 text-base font-medium bg-violet-700 rounded text-white'>Añadir a carrito</button>
+        <ItemCount/>
+        </div>
       </div>
 
     </section>

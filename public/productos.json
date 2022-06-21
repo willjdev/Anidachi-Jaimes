@@ -7,7 +7,7 @@
         "weight": "2kg",
         "height": "50cm",
         "width": "70cm",
-        "no": "2334FJK57",
+        "stock": "12",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
         "price": 25
     },
@@ -19,7 +19,7 @@
         "weight": "4kg",
         "height": "60cm",
         "width": "98cm",
-        "no": "23yjrrtJK57",
+        "stock": "15",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
         "price": 50
     },
@@ -31,7 +31,7 @@
         "weight": "104kg",
         "height": "220cm",
         "width": "280cm",
-        "no": "2OIWNGO94",
+        "stock": "5",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
         "price": 200
     },
@@ -43,7 +43,7 @@
         "weight": "8.5kg",
         "height": "60cm",
         "width": "80cm",
-        "no": "2334FJK57",
+        "stock": "18",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
         "price": 64
     },
@@ -55,7 +55,7 @@
         "weight": "19kg",
         "height": "110cm",
         "width": "90cm",
-        "no": "2334FJK57",
+        "stock": "15",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
         "price": 120
     },
@@ -67,7 +67,7 @@
         "weight": "90.5kg",
         "height": "170cm",
         "width": "150cm",
-        "no": "2334FJK57",
+        "stock": "6",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
         "price": 450
     },
@@ -79,7 +79,7 @@
         "weight": "9kg",
         "height": "50cm",
         "width": "67cm",
-        "no": "2334FJK57",
+        "stock": "17",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
         "price": 72
     },
@@ -91,7 +91,7 @@
         "weight": "22.5kg",
         "height": "100cm",
         "width": "109m",
-        "no": "2334FJK57",
+        "stock": "11",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
         "price": 156
     },
@@ -103,7 +103,7 @@
         "weight": "85.5kg",
         "height": "160cm",
         "width": "178cm",
-        "no": "2334FJK57",
+        "stock": "9",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
         "price": 510
     },
@@ -115,7 +115,7 @@
         "weight": "2.9kg",
         "height": "30cm",
         "width": "50cm",
-        "no": "2334FJK57",
+        "stock": "34",
         "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
         "price": 19
     }
