@@ -1,12 +1,21 @@
-import React from 'react'
+import React,  { useState } from 'react'
 import ItemCount from './ItemCount'
 
 export default function ItemDetail({producto}) {
     const {id, name, description, weight, height, width, stock, image, price} = producto;
 
-    const onAdd = (stock, cant) => {
+    const [quantity, setQuantity] = useState();
+    const [stockSobrante, setStockSobrante] = useState(stock);
+    
+    
+  console.log(stock)
+    /* const onAdd = (stock, cant) => {
     stock === 0 ?  alert("No hay stock del producto") : alert(`Añadido a carrito: ${cant}`);
-  }
+  } */
+  const onAdd = (count) => {
+        setQuantity(count);
+        setStockSobrante(stockSobrante - quantity);
+    }
 
   return (
     <section className='w-3/4 h-5/6 bg-white shadow-md flex'>
@@ -35,9 +44,10 @@ export default function ItemDetail({producto}) {
             <div className='w-full h-1/4 text-sm font-medium'>Stock:  <span className='font-normal'>{stock}</span></div>
           </div>
         </div>
-        <div className='flex '>
-        <button className='w-fit h-fit p-2 text-base font-medium bg-violet-700 rounded text-white'>Añadir a carrito</button>
-        <ItemCount/>
+        <div className='flex w-full items-center justify-center'>
+        {/* <button className='w-fit h-fit p-2 text-base font-medium bg-violet-700 rounded text-white'>Añadir a carrito</button> */}
+        <ItemCount initial={1} stockP={stock} onAdd={onAdd}/>
+        
         </div>
       </div>
 

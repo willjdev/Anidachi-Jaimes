@@ -1,30 +1,57 @@
 import React, { useState } from 'react'
 import { BiMinus, BiPlus } from "react-icons/bi";
+import { Link } from 'react-router-dom'
 
 
-function ItemCount({initial, stock, onAdd}) {
+function ItemCount({initial, stockP, onAdd}) {
 
     const [count, setCount] = useState(initial);
+    const [conditionAdd, setConditionAdd] = useState(true);
+    const [conditionFinish, setConditionFinish] = useState(false);
+    
+
+    
 
     const sumar = () => {
-        count < stock ? setCount(count + 1) : alert("No pueden añadirse más productos");
+        if (count < stockP) {
+            setCount(count + 1);
+        } else {
+            alert("No hay más unidades disponibles")
+        }
+        //count < stock ? (setCount(count + 1) ): alert("No pueden añadirse más productos");
     }
     const restar = () => {
-        count > initial ? setCount(count - 1) : alert("No pueden retirarse productos")
+        if (count > initial) {
+            setCount(count - 1);
+        } else {
+            alert("No disponible")
+        }
+        //count > initial ? setCount(count - 1) : alert("No pueden retirarse productos")
+    }
+    const visibilidadBoton = () => {
+        setConditionAdd(false);
+        setConditionFinish(true);
     }
 
   return (
-        <div className='flex flex-col w-28 h-32 border rounded border-indigo-700 border-solid'>
-            <div className='h-3/5 w-full flex flex-col items-center justify-center'>{count}</div>
-            <div className='flex flex-row items-center justify-around w-full h-1/5 border border-solid border-gray-100 rounded'>
-                <button onClick={sumar} className='w-1/2 h-full border border-solid flex flex-col items-center justify-center bg-gray-200'>
-                    <BiPlus/>
-                </button>
-                <button onClick={restar} className='w-1/2 h-full border border-solid flex flex-col items-center justify-center bg-gray-200'>
-                    <BiMinus/>
-                </button>
+        <div className='flex w-full h-28 justify-evenly'>
+            <div className='flex flex-col w-5/12 h-auto'>
+                <div className='h-3/5 w-full flex flex-col items-center justify-center text-lg font-medium'>{count}</div>
+                    <div className='flex flex-row items-center justify-around w-full h-2/5'>
+                        <button onClick={sumar} className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
+                            <BiPlus/>
+                        </button>
+                        <button onClick={restar} className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
+                            <BiMinus/>
+                        </button>
+                </div>
             </div>
-            <button onClick={() => onAdd(stock, count)} className='flex flex-col items-center justify-center text-xs bg-indigo-400 text-white w-full h-1/5 rounded ml-0'>Añadir a carrito</button>
+            <div className='flex items-center justify-center w-5/12 h-auto'>
+                    {conditionAdd && <button onClick={() => {onAdd(count); visibilidadBoton()}} className='flex flex-col items-center justify-center text-base bg-violet-600 text-white w-10/12 h-3/5 rounded ml-0'>Añadir al carrito</button>}
+                {conditionFinish && <Link to='/cart' className='flex flex-col items-center justify-center text-base bg-violet-600 text-white w-10/12 h-3/5 rounded ml-0'>
+                    <button>Finalizar compra</button>
+                </Link>}
+            </div>
         </div>
   )
 }
