@@ -1,20 +1,24 @@
-import React,  { useState } from 'react'
+import React,  { useContext, useState } from 'react'
+import { MiContexto } from '../context/CartContext';
 import ItemCount from './ItemCount'
 
 export default function ItemDetail({producto}) {
     const {id, name, description, weight, height, width, stock, image, price} = producto;
 
+    const {isInCart, addItem} = useContext(MiContexto);
     const [quantity, setQuantity] = useState();
     const [stockSobrante, setStockSobrante] = useState(stock);
     
-    
-  console.log(stock)
+  console.log(stock) 
     /* const onAdd = (stock, cant) => {
     stock === 0 ?  alert("No hay stock del producto") : alert(`Añadido a carrito: ${cant}`);
   } */
   const onAdd = (count) => {
         setQuantity(count);
-        setStockSobrante(stockSobrante - quantity);
+        //setStockSobrante(stockSobrante - quantity);
+        isInCart(producto.id);
+        addItem(producto, quantity);
+        console.log(quantity);
     }
 
   return (
