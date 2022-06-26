@@ -3,24 +3,18 @@ import { MiContexto } from '../context/CartContext';
 import ItemCount from './ItemCount'
 
 export default function ItemDetail({producto}) {
-    const {id, name, description, weight, height, width, stock, image, price} = producto;
+  const {id, name, description, weight, height, width, stock, image, price} = producto;
 
-    const {isInCart, addItem} = useContext(MiContexto);
-    const [quantity, setQuantity] = useState();
-    const [stockSobrante, setStockSobrante] = useState(stock);
+  const {isInCart, addItem} = useContext(MiContexto);
+  const [quantity, setQuantity] = useState();
     
-  console.log(stock) 
-    /* const onAdd = (stock, cant) => {
-    stock === 0 ?  alert("No hay stock del producto") : alert(`Añadido a carrito: ${cant}`);
-  } */
+  
   const onAdd = (count) => {
-        setQuantity(count);
-        //setStockSobrante(stockSobrante - quantity);
-        isInCart(producto.id);
-        addItem(producto, quantity);
-        console.log(quantity);
-    }
-
+    isInCart(producto.id);
+    addItem(producto, count);
+    setQuantity(count);
+  }
+  console.log(quantity)
   return (
     <section className='w-3/4 h-5/6 bg-white shadow-md flex'>
       <div className='w-1/2 h-full flex flex-col items-center justify-evenly'>
