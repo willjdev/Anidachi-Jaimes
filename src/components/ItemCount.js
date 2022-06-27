@@ -35,22 +35,32 @@ function ItemCount({initial, stockP, onAdd}) {
 
   return (
         <div className='flex w-full h-28 justify-evenly'>
-            <div className='flex flex-col w-5/12 h-auto'>
-                <div className='h-3/5 w-full flex flex-col items-center justify-center text-lg font-medium'>{count}</div>
+            <div className='flex flex-col justify-center w-5/12 h-auto'>
                     <div className='flex flex-row items-center justify-around w-full h-2/5'>
-                        <button onClick={sumar} className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
+                        <button 
+                        onClick={sumar} 
+                        className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
                             <BiPlus/>
                         </button>
-                        <button onClick={restar} className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
+                        <div className='h-3/5 w-full flex flex-col items-center justify-center text-lg font-medium'>{count}</div>
+                        <button 
+                        onClick={restar} 
+                        className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
                             <BiMinus/>
                         </button>
                 </div>
             </div>
             <div className='flex items-center justify-center w-5/12 h-auto'>
-                    {conditionAdd && <button onClick={() => {onAdd(count); visibilidadBoton()}} className='flex flex-col items-center justify-center text-base bg-violet-600 text-white w-10/12 h-3/5 rounded ml-0'>Añadir al carrito</button>}
-                {conditionFinish && <Link to='/cart' className='flex flex-col items-center justify-center text-base bg-violet-600 text-white w-10/12 h-3/5 rounded ml-0'>
-                    <button>Finalizar compra</button>
-                </Link>}
+                    {conditionAdd && 
+                        <button 
+                        onClick={() => {onAdd(count); visibilidadBoton()}} 
+                        className='flex flex-col items-center justify-center text-base bg-violet-600 text-white w-10/12 h-3/5 rounded ml-0'>
+                            Añadir al carrito
+                        </button>}
+                    {conditionFinish && 
+                        <Link to='/cart' className='flex flex-col items-center justify-center text-base bg-violet-600 text-white w-10/12 h-3/5 rounded ml-0'>
+                            <button>Ver carrito</button>
+                    </Link>}
             </div>
         </div>
   )
