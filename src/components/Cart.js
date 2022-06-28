@@ -1,4 +1,5 @@
 import React from 'react'
+import { BsXLg } from "react-icons/bs";
 
 function Cart() {
   return (
@@ -8,47 +9,75 @@ function Cart() {
           <div className='w-full h-20 border-b-2 border-slate-200 flex items-center text-lg font-bold '>
           <h1>Tu carrito</h1>
           </div>
-          <div className='w-8/12 h-auto flex flex-col mt-4'>
-            {/* Encabezados */}
-            <div className='w-full h-20 flex border-b-2 border-slate-200'>
-              <div className='w-3/6 h-full flex items-end justify-center text-base font-semibold pb-4'>
-                <p>Producto</p>
-              </div>
-              <div className='w-2/6 h-full flex items-end justify-around text-base font-semibold pb-4 border border-black'>
-                <li className='w-1/3 h-full flex items-end justify-center border border-black'>Precio</li>
-                <li className='w-1/3 h-full flex items-end justify-center border border-black'>Cantidad</li>
-                <li className='w-1/3 h-full flex items-end justify-center border border-black'>Total</li>
-              </div>
-            </div>
-            {/* Producto y detalles */}
-            <div className='w-11/12 h-48 border-b-2 border-slate-200 flex justify-between items-center'>
 
-              <div className='w-6/12 h-full flex justify-between items-center border border-black'>
-                <div className='w-32 h-28 border border-black'>
-                  <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'/>
+          <div className='w-8-12 h-auto flex'>
+            <div className='w-full h-auto flex flex-col mt-4'>
+              {/* Encabezados */}
+              <div className='w-full h-20 flex border-b-2 border-slate-200'>
+                <div className='w-3/6 h-full flex items-end justify-center text-base font-semibold pb-4'>
+                  <p>Producto</p>
                 </div>
-                <div className='w-auto h-28 flex items-start text-base font-semibold border border-black pl-2'>
-                  Bulbasaur - Pokemon tipo planta veneno
+                <div className='w-2/6 h-full flex items-end justify-around text-base font-semibold pb-4'>
+                  <li className='w-1/3 h-full flex items-end justify-center'>Precio</li>
+                  <li className='w-1/3 h-full flex items-end justify-center'>Cantidad</li>
+                  <li className='w-1/3 h-full flex items-end justify-center'>Total</li>
+                </div>
+              </div>
+              {/* Producto y detalles */}
+              <div className='w-11/12 h-48 border-b-2 border-slate-200 flex justify-between items-center'>
+
+                <div className='w-6/12 h-full flex justify-between items-center'>
+                  <div className='w-32 h-28'>
+                    <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'/>
+                  </div>
+                  <div className='w-auto h-28 flex items-start text-base font-semibold pl-4'>
+                    Bulbasaur - Pokemon tipo planta veneno
+                  </div>
+                </div>
+
+                <div className='w-4/12 h-full flex justify-center items-center'>
+                  <div className='w-1/3 h-28 text-center text-base'>
+                    $232
+                  </div>
+                  <div className='w-1/3 h-28 text-center text-base'>
+                    7
+                  </div>
+                  <div className='w-1/3 h-28 text-center text-base'>
+                    $989
+                  </div>
+                </div>
+
+                <div className='w-8 h-full flex justify-center items-start pt-4'>
+                  <BsXLg/>
                 </div>
               </div>
 
-              <div className='w-4/12 h-full flex justify-center items-center border border-black'>
-                <div className='w-1/3 h-28 text-center border border-black text-base'>
-                  $232
+              {/* Subtotal */}
+              <div className='w-11/12 h-20 border-b-2 border-slate-200 flex justify-end items-center gap-7 pr-4 text-base font-bold'>
+                <h2>Subtotal</h2>
+                <h2>$7894</h2>
+              </div>
+            </div> 
+
+
+          {/* Resumen de compra */}
+          <div className='w-4/12 h-auto flex flex-col mt-4 gap-4'>
+
+              <div className='w-full h-40 flex flex-col border-2 border-slate-200'>
+                <div className='w-full h-2/4 text-lg font-bold flex items-center pl-5'>Resumen de orden</div>
+                <div className='w-full h-1/4 flex justify-between items-center px-5'>
+                  <h2>Subtotal:</h2>
+                  <h2>$987</h2>
                 </div>
-                <div className='w-1/3 h-28 text-center border border-black text-base'>
-                  7
-                </div>
-                <div className='w-1/3 h-28 text-center border border-black'>
-                  $989
-                </div>
+                <div className='w-full h-1/4 text-sm pl-5'>* Costo de envío en finalización</div>
               </div>
 
-              <div className='w-8 h-full border border-black'>
+              <button className='w-full h-16 flex items-center justify-center text-base font-semibold text-white bg-violet-600'>
+                Finalizar
+              </button>
+          </div>
+          </div>
 
-              </div>
-            </div>
-          </div> 
         </div>
 
       </section>
