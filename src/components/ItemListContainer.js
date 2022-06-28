@@ -141,13 +141,13 @@ function ItemListContainer() {
     setLoading(true);
     setError(error);
     const contenido = new Promise((res, rej) => {
-      setTimeout(() => {
+      //setTimeout(() => {
         if (id == undefined) {
           res(productos)
         } else {
           res(productos.filter((item) => item.category == id))
         }
-      }, 2000)
+      //}, 2000)
     });
 
 contenido

@@ -11,7 +11,7 @@ function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    setTimeout(() => {
+    //setTimeout(() => {
       fetch('../../productos.json', {
         method: 'GET'
       })
@@ -24,7 +24,7 @@ function ItemDetailContainer() {
       .catch((e) => {
         console.log(e)
       })
-    }, 2000)
+    //}, 2000)
 
   }, [id])
   

@@ -5,14 +5,14 @@ import ItemCount from './ItemCount'
 export default function ItemDetail({producto}) {
   const {id, name, description, weight, height, width, stock, image, price} = producto;
 
-  const {isInCart, addItem, cart} = useContext(MiContexto);
+  const {addItem, cart} = useContext(MiContexto);
   const [quantity, setQuantity] = useState();
     
   
   const onAdd = (count) => {
-    isInCart(producto.id);
     addItem(producto, count);
     setQuantity(count);
+    console.log(JSON.stringify(cart))
   }
 
   return (

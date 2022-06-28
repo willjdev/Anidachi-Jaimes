@@ -8,17 +8,19 @@ const {Provider} = MiContexto;
 
 export default function CartContext({children}) {
 
-    const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([]);
     
+  const isInCart = (id) => {
+    return cart.some(item => item.id === id)
+  };
 
-    const isInCart = (id) => {
-      return cart.some(item => item.id === id)
-    };
-
-    const addItem = (producto, quantity) => {
-      const nuevoObj = {
-        ...producto, quantity
-      }
+  const addItem = (producto, quantity) => {
+    const nuevoObj = {
+      ...producto, quantity
+    }
+    if (cart.length == 0) {
+      setCart([nuevoObj])
+    } else {
       if (isInCart(nuevoObj.id)) {
         const revisarProducto = cart.find(item => item.id === nuevoObj.id)
         const indexProducto = cart.indexOf(revisarProducto);
@@ -26,25 +28,28 @@ export default function CartContext({children}) {
         arrayTemp[indexProducto].quantity += quantity;
         setCart(arrayTemp);
       } else {
-        setCart([...cart], nuevoObj);
+        setCart([...cart, nuevoObj]);
       }
-    };
+    }
+    //console.log(cart)
+  };
 
-    const emptyCart = () => {
-      setCart([]);
-    };
+  const emptyCart = () => {
+    setCart([]);
+  };
 
-    const deleteItem = (id) => {
-      return setCart(cart.filter(item => item.id !== id));
-    };
+  const deleteItem = (id) => {
+    return setCart(cart.filter(item => item.id !== id));
+  };
 
-    const getItemQty = () => {
-      return cart.reduce((acc, item) => acc += item.quantity, 0)
-    };
+  const getItemQty = () => {
+    return cart.reduce((acc, item) => acc += item.quantity, 0)
+  };
 
-    const getItemPrice = () => {
-      return cart.reduce((acc, item) => acc += item.quantity * item.price, 0)
-    };
+  const getItemPrice = () => {
+    return cart.reduce((acc, item) => acc += item.quantity * item.price, 0)
+  };
+  
 
 
   return <Provider value={{isInCart, addItem, emptyCart, deleteItem, getItemQty, getItemPrice, cart}}>{children}</Provider>
