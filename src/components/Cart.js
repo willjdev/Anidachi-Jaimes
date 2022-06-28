@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BsXLg } from "react-icons/bs";
+import { MiContexto } from '../context/CartContext';
 
 function Cart() {
+
+  const {cart, deleteItem, getItemPrice} = useContext(MiContexto);
+
+
+
+
+console.log(cart)
+
+
+
+
+
+
+
   return (
     <>
-      <section className='w-full h-screen flex flex-col items-center'>
+      {cart.length != 0 ? <section className='w-full h-screen flex flex-col items-center'>
         <div className='w-10/12 h-auto flex flex-col'>
           <div className='w-full h-20 border-b-2 border-slate-200 flex items-center text-lg font-bold '>
           <h1>Tu carrito</h1>
@@ -24,38 +39,41 @@ function Cart() {
                 </div>
               </div>
               {/* Producto y detalles */}
+                {cart.map((item) => (
+                  <>
               <div className='w-11/12 h-48 border-b-2 border-slate-200 flex justify-between items-center'>
+                  <div className='w-6/12 h-full flex justify-between items-center'>
+                    <div className='w-32 h-28'>
+                      <img src={item.image}/>
+                    </div>
+                    <div className='w-auto h-28 flex items-start text-base font-semibold pl-4'>
+                      {item.name}
+                    </div>
+                  </div>
 
-                <div className='w-6/12 h-full flex justify-between items-center'>
-                  <div className='w-32 h-28'>
-                    <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'/>
+                  <div className='w-4/12 h-full flex justify-center items-center'>
+                    <div className='w-1/3 h-28 text-center text-base'>
+                      {item.price}
+                    </div>
+                    <div className='w-1/3 h-28 text-center text-base'>
+                      {item.quantity}
+                    </div>
+                    <div className='w-1/3 h-28 text-center text-base'>
+                      {item.price * item.quantity}
+                    </div>
                   </div>
-                  <div className='w-auto h-28 flex items-start text-base font-semibold pl-4'>
-                    Bulbasaur - Pokemon tipo planta veneno
-                  </div>
-                </div>
 
-                <div className='w-4/12 h-full flex justify-center items-center'>
-                  <div className='w-1/3 h-28 text-center text-base'>
-                    $232
+                  <div className='w-8 h-full flex justify-center items-start pt-4'>
+                    <BsXLg onClick={() => deleteItem(item.id)}/>
                   </div>
-                  <div className='w-1/3 h-28 text-center text-base'>
-                    7
                   </div>
-                  <div className='w-1/3 h-28 text-center text-base'>
-                    $989
-                  </div>
-                </div>
-
-                <div className='w-8 h-full flex justify-center items-start pt-4'>
-                  <BsXLg/>
-                </div>
-              </div>
+                  </>
+                ))}
 
               {/* Subtotal */}
               <div className='w-11/12 h-20 border-b-2 border-slate-200 flex justify-end items-center gap-7 pr-4 text-base font-bold'>
                 <h2>Subtotal</h2>
-                <h2>$7894</h2>
+                <h2>{getItemPrice()}</h2>
               </div>
             </div> 
 
@@ -67,7 +85,7 @@ function Cart() {
                 <div className='w-full h-2/4 text-lg font-bold flex items-center pl-5'>Resumen de orden</div>
                 <div className='w-full h-1/4 flex justify-between items-center px-5'>
                   <h2>Subtotal:</h2>
-                  <h2>$987</h2>
+                  <h2>{getItemPrice()}</h2>
                 </div>
                 <div className='w-full h-1/4 text-sm pl-5'>* Costo de envío en finalización</div>
               </div>
@@ -80,23 +98,7 @@ function Cart() {
 
         </div>
 
-      </section>
-      {/* <section className='w-10/12 h-auto bg-white flex flex-col items-center'>
-        <div className='w-full h-20 border-b-2 border-slate-200 flex items-center text-lg font-bold '>
-          Tu carrito
-        </div>
-        <div className='w-8/12 h-auto flex flex-col self-start'>
-          <div className='w-full h-24 flex border-b-2 border-slate-200'>
-            <div className='w-1/2 h-full'>
-
-            </div>
-            <div></div>
-          </div>
-          
-
-        </div>
-
-      </section> */}
+      </section> : "Carrito vacío"}
     </>
   )
 }
