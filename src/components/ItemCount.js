@@ -38,15 +38,15 @@ function ItemCount({initial, stockP, onAdd}) {
             <div className='flex flex-col justify-center w-5/12 h-auto'>
                     <div className='flex flex-row items-center justify-around w-full h-2/5'>
                         <button 
-                        onClick={sumar} 
-                        className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
-                            <BiPlus/>
-                        </button>
-                        <div className='h-3/5 w-full flex flex-col items-center justify-center text-lg font-medium'>{count}</div>
-                        <button 
                         onClick={restar} 
                         className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
                             <BiMinus/>
+                        </button>
+                        <div className='h-3/5 w-full flex flex-col items-center justify-center text-lg font-medium'>{count}</div>
+                        <button 
+                        onClick={sumar} 
+                        className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
+                            <BiPlus/>
                         </button>
                 </div>
             </div>

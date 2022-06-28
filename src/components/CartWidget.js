@@ -16,11 +16,13 @@ function CartWidget() {
 
   return (
     <>
-      <Link to='/cart'>
-        <div className='flex justify-center items-center'>
-            <span className='flex justify-around items-center w-8 h-8'><BsCart2/><sup>{cantidadCart}</sup></span>
-        </div>
-      </Link>
+      {cart.length !== 0 && 
+        <Link to='/cart'>
+          <div className='flex justify-center items-center'>
+              <span className='flex justify-around items-center w-8 h-8'><BsCart2/><sup>{cantidadCart}</sup></span>
+          </div>
+        </Link>
+      } 
     </>
   )
 }
