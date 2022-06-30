@@ -5,10 +5,8 @@ import CartWidget from './CartWidget'
 
 function NavBar () {
     let Links = [
-        {seccion: "Planta", link:"/category/plant"},
-        {seccion: "Fuego", link:"/category/fire"},
-        {seccion: "Agua", link:"/category/water"},
-        {seccion: "Bicho", link:"/category/bug"}
+        {seccion: "Figuras", link:"/category/figure"},
+        {seccion: "Accesorios", link:"/category/accessory"}
     ]
 
     return (<>

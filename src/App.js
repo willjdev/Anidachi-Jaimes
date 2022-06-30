@@ -5,8 +5,26 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContext from './context/CartContext';
+import { initializeApp } from "firebase/app";
+
+
+
 
 function App() {
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBxEpuzEQazGYAhpIngngeg1v55oPIuzjw",
+    authDomain: "anidachi-eb060.firebaseapp.com",
+    projectId: "anidachi-eb060",
+    storageBucket: "anidachi-eb060.appspot.com",
+    messagingSenderId: "973520723133",
+    appId: "1:973520723133:web:5023f8379468f89bb16bd4"
+  };
+  
+  initializeApp(firebaseConfig);
+
+
   return (
     <>
     <CartContext>
