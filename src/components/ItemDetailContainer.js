@@ -1,40 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail'
+import {getFirestore, getDoc, doc} from 'firebase/firestore';
+
 
 function ItemDetailContainer() {
   let colores = ["#E24E42", "#E9B000", "#008F95", "#4717F6"]
 
   const {id} = useParams();
+
+  
   console.log(id)
-  const [producto, setProducto] = useState({});
+  const [producto, setProducto] = useState();
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    //setTimeout(() => {
-      fetch('../../productos.json', {
-        method: 'GET'
+    const itemsDb = 'ItemCollection';
+    const db = getFirestore();
+    const collectionProducto = doc(db, itemsDb, id);
+    getDoc(collectionProducto)
+    .then((res) => {
+      setProducto({...res.data(), id: res.id})
+      console.log({...res.data(), id: res.id})
+      setLoading(false)
       })
-      .then((response) => response.json())
-      .then((data) => {
-        setProducto(data.find((item) => item.id == id));
-        console.log(data)
-        setLoading(false)
+      .catch((error) => {
+        console.log(error);
       })
-      .catch((e) => {
-        console.log(e)
-      })
-    //}, 2000)
-
   }, [id])
+  
   
 
   return (
     <>
     <div>{loading && "Loading..."}</div>
     <div className='w-full h-screen bg-violet-600 flex flex-col items-center justify-center'>
-      {/* <div>{JSON.stringify(producto)}</div> */}
-      <ItemDetail producto={producto}/>
+      {producto && <ItemDetail producto={producto}/>}
     </div>
     </>
   )

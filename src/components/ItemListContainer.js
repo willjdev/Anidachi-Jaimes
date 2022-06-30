@@ -8,23 +8,32 @@ function ItemListContainer() {
 
   const {id} = useParams();
 
-  const itemsDb = 'ItemCollection';
-  const db = getFirestore();
-  //const [collectionProductos, setCollectionProductos] = useState()
-  const collectionProductos = collection(db, itemsDb);
-
+  
+  
   const [productosDb, setProdutosDb] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   
   useEffect(() => {
+    const itemsDb = 'ItemCollection';
+    const db = getFirestore();
+    const collectionProductos = collection(db, itemsDb);
+    const collectionProductosFiltro = query(collectionProductos, where("category", "==", `${id}`));
     if (id === undefined) {
-      getDocs(collectionProductos).then((res) => {
-        setProdutosDb(res.docs.map(doc => ({id: doc.id, ...doc.data()})));
-        console.log(productosDb)
-      });
+      getDocs(collectionProductos)
+      .then((res) => {
+      setProdutosDb(res.docs.map(doc => ({id: doc.id, ...doc.data()})));
+      console.log(productosDb)
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      })
     } else {
-      getDocs(collectionProductos).then((res) => {
+      
+      getDocs(collectionProductosFiltro).then((res) => {
         setProdutosDb(res.docs.map(doc => ({id: doc.id, ...doc.data()})));
         console.log(productosDb)
       });
@@ -39,7 +48,7 @@ function ItemListContainer() {
         }
 
     }); */
-}, [])
+}, [id])
 
   
 
