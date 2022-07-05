@@ -46,7 +46,7 @@ console.log(cart)
               <div className='w-11/12 h-48 border-b-2 border-slate-200 flex justify-between items-center'>
                   <div className='w-6/12 h-full flex justify-between items-center'>
                     <div className='w-32 h-28'>
-                      <img src={item.image}/>
+                      <img src={item.images[0]}/>
                     </div>
                     <div className='w-auto h-28 flex items-start text-base font-semibold pl-4'>
                       {item.name}
@@ -89,12 +89,14 @@ console.log(cart)
                   <h2>Subtotal:</h2>
                   <h2>${getItemPrice()}</h2>
                 </div>
-                <div className='w-full h-1/4 text-sm pl-5'>* Costo de envío en finalización</div>
+                <div className='w-full h-1/4 text-sm pl-5'>* Costo de envío en checkout</div>
               </div>
 
-              <button className='w-full h-16 flex items-center justify-center text-base font-semibold text-white bg-violet-600'>
-                Finalizar
-              </button>
+              <Link to='/checkout/'>
+                <button className='w-full h-16 flex items-center justify-center text-base font-semibold text-white bg-violet-600'>
+                  Checkout
+                </button>
+              </Link>
           </div>
           </div>
 
@@ -102,7 +104,7 @@ console.log(cart)
 
       </section> : 
 
-      <section className='w-full h-48 flex flex-col items-center justify-around'>
+      <section className='w-full h-48 flex flex-col items-center justify-center gap-8'>
         <div className='text-lg font-semibold'>Carrito vacío</div>
         <Link to='/' ><button className='w-40 h-20 text-white bg-violet-600'>Ver productos</button></Link>
       </section>}
