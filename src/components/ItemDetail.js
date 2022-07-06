@@ -42,7 +42,7 @@ export default function ItemDetail({producto}) {
                 <div className='w-full h-1/6 text-sm font-medium'>
                   Detalles:
                 </div>
-                {details.map((item) => <li className='font-normal w-full h-1/4 text-sm mb-1'>{item}</li>)}
+                {details.map((item) => (<li key={details.length + 1} className='font-normal w-full h-1/4 text-sm mb-1'>{item}</li>))}
                 <div className='w-full h-1/4 text-sm font-medium'>
                   Stock:  <span className='font-normal'>{stock}</span>
                 </div>
