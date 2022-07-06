@@ -24,9 +24,9 @@ export default function ItemDetail({producto}) {
               <img className='max-w-full max-h-full' src={images[0]} alt="producto"/>
             </div>
             <div id='imagenes' className='w-96 h-28  flex justify-around items-center border-t border-black'>
-              {images[1] && <img src={images[1]} className='w-1/4 max-h-24' alt='pokemon'/>}
-              {images[2] && <img src={images[2]} className='w-1/4 max-h-24' alt='pokemon'/>}
-              {images[3] && <img src={images[3]} className='w-1/4 max-h-24' alt='pokemon'/>}
+              {images[1] && <img src={images[1]} className='w-1/4 max-h-24' alt='producto'/>}
+              {images[2] && <img src={images[2]} className='w-1/4 max-h-24' alt='producto'/>}
+              {images[3] && <img src={images[3]} className='w-1/4 max-h-24' alt='producto'/>}
             </div>
           </div>
           <div className='w-1/2 h-full  flex flex-col items-center justify-evenly'>
