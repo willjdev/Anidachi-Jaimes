@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList'
 import {getFirestore, getDocs, collection, query, where} from 'firebase/firestore';
+import Banner from './Banner';
 
 
 function ItemListContainer() {
@@ -39,24 +40,15 @@ function ItemListContainer() {
       });
     }
     setLoading(false)
-    /* const contenido = new Promise((res, rej) => {
-
-        if (id == undefined) {
-          res(productosDb)
-        } else {
-          res(productosDb.filter((item) => item.category == id))
-        }
-
-    }); */
 }, [id])
 
   
 
   return (
     <>
+      <Banner/>
       <div>{loading && "Loading"}</div>
-      {/* <div>{error && "Hubo un error"}</div> */}
-      <div className='flex flex-col items-center'>
+      <div className='flex flex-col items-center bg-zinc-900'>
         <ItemList productos={productosDb} />
       </div>
       

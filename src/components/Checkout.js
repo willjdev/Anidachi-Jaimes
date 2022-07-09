@@ -4,7 +4,7 @@ import { addDoc, collection, getFirestore} from 'firebase/firestore';
 
 export default function Checkout() {
 
-  const {cart, getItemPrice, emptyCart} = useContext(MiContexto);
+  const {cart, precioItem, vaciarCart} = useContext(MiContexto);
 
   const db = getFirestore();
   const orderCollection = collection(db, 'orders');
@@ -19,7 +19,7 @@ export default function Checkout() {
   const [validarEmail, setValidarEmail] = useState(false)
   let verificacionN, verificacionT, verificacionE;
 
-  const totalCompra = getItemPrice();
+  const totalCompra = precioItem();
 
   function validateEmail(e) {
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -93,7 +93,7 @@ export default function Checkout() {
     addDoc(orderCollection, order).then(({id}) => {
       setPresBtn(true);
       setOrdenId(id);
-      emptyCart();
+      vaciarCart();
     })
 
   }
@@ -125,7 +125,7 @@ export default function Checkout() {
 
           </div>
 
-          <button onClick={() => handleClick()} className='w-48 h-16 bg-violet-600 text-white text-lg'>Finalizar</button>
+          <button onClick={() => handleClick()} className='w-48 h-16 bg-orange-400 text-black text-lg'>Finalizar</button>
         </section>}
 
         {presBtn && 

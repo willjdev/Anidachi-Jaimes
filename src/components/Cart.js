@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 function Cart() {
 
-  const {cart, deleteItem, getItemPrice} = useContext(MiContexto);
+  const {cart, borrarItem, precioItem} = useContext(MiContexto);
 
 
 
@@ -66,7 +66,7 @@ console.log(cart)
                   </div>
 
                   <div className='w-8 h-full flex justify-center items-start pt-4'>
-                    <BsXLg className='cursor-pointer' onClick={() => deleteItem(item.id)}/>
+                    <BsXLg className='cursor-pointer' onClick={() => borrarItem(item.id)}/>
                   </div>
                   </div>
                   </>
@@ -75,7 +75,7 @@ console.log(cart)
               {/* Subtotal */}
               <div className='w-11/12 h-20 border-b-2 border-slate-200 flex justify-end items-center gap-7 pr-4 text-base font-bold'>
                 <h2>Subtotal</h2>
-                <h2>${getItemPrice()}</h2>
+                <h2>${precioItem()}</h2>
               </div>
             </div> 
 
@@ -87,13 +87,13 @@ console.log(cart)
                 <div className='w-full h-2/4 text-lg font-bold flex items-center pl-5'>Resumen de orden</div>
                 <div className='w-full h-1/4 flex justify-between items-center px-5'>
                   <h2>Subtotal:</h2>
-                  <h2>${getItemPrice()}</h2>
+                  <h2>${precioItem()}</h2>
                 </div>
                 <div className='w-full h-1/4 text-sm pl-5'>* Costo de envío en checkout</div>
               </div>
 
               <Link to='/checkout/'>
-                <button className='w-full h-16 flex items-center justify-center text-base font-semibold text-white bg-violet-600'>
+                <button className='w-full h-16 flex items-center justify-center text-base font-semibold text-black bg-orange-400'>
                   Checkout
                 </button>
               </Link>

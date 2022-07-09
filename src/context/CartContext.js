@@ -10,18 +10,18 @@ export default function CartContext({children}) {
 
   const [cart, setCart] = useState([]);
     
-  const isInCart = (id) => {
+  const estaEnCart = (id) => {
     return cart.some(item => item.id === id)
   };
 
-  const addItem = (producto, quantity) => {
+  const añadirItem = (producto, quantity) => {
     const nuevoObj = {
       ...producto, quantity
     }
     if (cart.length == 0) {
       setCart([nuevoObj])
     } else {
-      if (isInCart(nuevoObj.id)) {
+      if (estaEnCart(nuevoObj.id)) {
         const revisarProducto = cart.find(item => item.id === nuevoObj.id)
         const indexProducto = cart.indexOf(revisarProducto);
         const arrayTemp = [...cart];
@@ -34,24 +34,24 @@ export default function CartContext({children}) {
     //console.log(cart)
   };
 
-  const emptyCart = () => {
+  const vaciarCart = () => {
     setCart([]);
   };
 
-  const deleteItem = (id) => {
+  const borrarItem = (id) => {
     return setCart(cart.filter(item => item.id !== id));
   };
 
-  const getItemQty = () => {
+  const cantItem = () => {
     return cart.reduce((acc, item) => acc += item.quantity, 0)
   };
 
-  const getItemPrice = () => {
+  const precioItem = () => {
     return cart.reduce((acc, item) => acc += item.quantity * item.price, 0)
   };
   
 
 
-  return <Provider value={{isInCart, addItem, emptyCart, deleteItem, getItemQty, getItemPrice, cart}}>{children}</Provider>
+  return <Provider value={{estaEnCart, añadirItem, vaciarCart, borrarItem, cantItem, precioItem, cart}}>{children}</Provider>
 
 }

@@ -5,24 +5,22 @@ import { MiContexto } from '../context/CartContext'
 
 function CartWidget() {
 
-  const {getItemQty, cart} = useContext(MiContexto);
+  const {cantItem, cart} = useContext(MiContexto);
   const [cantidadCart, setCantidadCart] = useState();
 
   
 
   useEffect(() => {
-    setCantidadCart(getItemQty())
+    setCantidadCart(cantItem())
   }, [cart])
 
   return (
     <>
-      {cart.length !== 0 && 
         <Link to='/cart'>
           <div className='flex justify-center items-center'>
               <span className='flex justify-around items-center w-8 h-8'><BsCart2/><sup>{cantidadCart}</sup></span>
           </div>
         </Link>
-      } 
     </>
   )
 }

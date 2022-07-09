@@ -5,12 +5,12 @@ import ItemCount from './ItemCount'
 export default function ItemDetail({producto}) {
   const {id, name, description, details, stock, images, price} = producto;
 
-  const {addItem, cart} = useContext(MiContexto);
+  const {añadirItem, cart} = useContext(MiContexto);
   const [quantity, setQuantity] = useState();
     
   
   const onAdd = (count) => {
-    addItem(producto, count);
+    añadirItem(producto, count);
     setQuantity(count);
     console.log(JSON.stringify(cart))
   }
@@ -18,7 +18,7 @@ export default function ItemDetail({producto}) {
   return (
     <>
       {images && (
-        <section className='w-3/4 h-auto p-2 bg-white shadow-md flex'>
+        <section className='w-3/4 h-full p-2 bg-white shadow-md flex'>
           <div className='w-1/2 h-full flex flex-col items-center justify-evenly'>
             <div id='imagen' className='w-80 h-80 flex items-center justify-center mb-2'>
               <img className='max-w-full max-h-full' src={images[0]} alt="producto"/>
@@ -36,7 +36,7 @@ export default function ItemDetail({producto}) {
                 <div className='w-full h-1/6 text-sm font-medium'>
                   Descripción:
                 </div>
-                <p className='w-full h-5/6 text-sm text-left'>{description}</p>
+                <p className='w-full h-5/6 text-sm text-left pr-2'>{description}</p>
               </div>
               <div className='w-1/2 h-full flex flex-col pl-6'>
                 <div className='w-full h-1/6 text-sm font-medium'>
