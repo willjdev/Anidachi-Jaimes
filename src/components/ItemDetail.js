@@ -18,32 +18,32 @@ export default function ItemDetail({producto}) {
   return (
     <>
       {images && (
-        <section className='w-3/4 h-full p-2 bg-white shadow-md flex'>
-          <div className='w-1/2 h-full flex flex-col items-center justify-evenly'>
-            <div id='imagen' className='w-80 h-80 flex items-center justify-center mb-2'>
-              <img className='max-w-full max-h-full' src={images[0]} alt="producto"/>
+        <section className='md:w-3/4 w-full h-screen p-2 bg-white shadow-md md:flex md:flex-row flex flex-col items-center justify-around'>
+          <div className='md:w-1/2 w-full md:h-full h-1/3 flex md:flex-col flex-row items-center justify-evenly '>
+            <div id='imagen' className='md:w-80 md:h-80 w-40 h-1/6 flex items-center justify-center md:mb-2 mb-0'>
+              <img className='md:max-w-full md:max-h-full w-auto h-auto' src={images[0]} alt="producto"/>
             </div>
-            <div id='imagenes' className='w-96 h-28  flex justify-around items-center border-t border-black'>
-              {images[1] && <img src={images[1]} className='w-1/4 max-h-24' alt='producto'/>}
-              {images[2] && <img src={images[2]} className='w-1/4 max-h-24' alt='producto'/>}
-              {images[3] && <img src={images[3]} className='w-1/4 max-h-24' alt='producto'/>}
+            <div id='imagenes' className='md:w-96 md:h-28 flex md:flex-row flex-col gap-3 md:gap-0 justify-around items-center md:border-t md:border-black '>
+              {images[1] && <img src={images[1]} className='md:w-1/4 w-3/4 md:max-h-24 h-14' alt='producto'/>}
+              {images[2] && <img src={images[2]} className='md:w-1/4 w-3/4 md:max-h-24 h-14' alt='producto'/>}
+              {images[3] && <img src={images[3]} className='md:w-1/4 w-3/4 md:max-h-24 h-14' alt='producto'/>}
             </div>
           </div>
-          <div className='w-1/2 h-full  flex flex-col items-center justify-evenly'>
+          <div className='md:w-1/2 md:h-full w-full p-2 h-2/3 md:p-0 flex flex-col items-center justify-evenly'>
             <div className='w-fit h-fit p-2 rounded text-lg font-semibold mb-3'>{name}</div>
             <div className='w-full h-auto flex justify-evenly p-2'>
               <div className='w-1/2 h-auto flex flex-col border-r border-solid border-slate-600'>
-                <div className='w-full h-1/6 text-sm font-medium'>
+                <div className='w-full h-1/6 text-sm font-medium mb-2 md:mb-0'>
                   Descripción:
                 </div>
                 <p className='w-full h-5/6 text-sm text-left pr-2'>{description}</p>
               </div>
               <div className='w-1/2 h-full flex flex-col pl-6'>
-                <div className='w-full h-1/6 text-sm font-medium'>
+                <div className='w-full h-1/6 text-sm font-medium mb-2 md:mb-0'>
                   Detalles:
                 </div>
                 {details.map((item) => (<li key={details.length + 1} className='font-normal w-full h-1/4 text-sm mb-1'>{item}</li>))}
-                <div className='w-full h-1/4 text-sm font-medium'>
+                <div className='w-full h-1/4 text-sm font-medium md:mt-2 mt-3'>
                   Stock:  <span className='font-normal'>{stock}</span>
                 </div>
               </div>

@@ -54,11 +54,11 @@ function ItemCount({initial, stockP, onAdd}) {
                     {conditionAdd && 
                         <button 
                         onClick={() => {onAdd(count); visibilidadBoton()}} 
-                        className='flex flex-col items-center justify-center text-base bg-orange-400 text-black w-10/12 h-3/5 ml-0'>
+                        className='flex flex-col items-center justify-center text-base bg-orange-400 text-black w-10/12 h-3/5 ml-0 md:p-0 p-2'>
                             Añadir al carrito
                         </button>}
                     {conditionFinish && 
-                        <Link to='/cart' className='flex flex-col items-center justify-center text-base bg-orange-400 text-black w-10/12 h-3/5  ml-0'>
+                        <Link to='/cart' className='flex flex-col items-center justify-center text-base bg-orange-400 text-black w-10/12 h-3/5  ml-0 md:p-0 p-2'>
                             <button>Ver carrito</button>
                     </Link>}
             </div>
