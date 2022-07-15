@@ -28,7 +28,7 @@ function NavBar () {
                     {abierto ? <IoClose/> : <IoMenu/>}
                 </div>
 
-                <ul className={`md:flex md:flex-row md:items-center md:h-auto h-40 flex flex-col items-start justify-around md:static md:pb-0 absolute pb-4 left-2 md:z-auto pl-5 w-1/2 md:w-auto transition-all duration-500 ease-in bg-zinc-800 ${abierto ? 'top-20 opacity-100 z-1' : 'top-[-500] z-[-1]'} md:opacity-100`}>
+                <ul className={`md:flex md:flex-row md:items-center md:h-auto h-40 flex flex-col items-start justify-around md:static md:pb-0 absolute pb-4 left-2 md:z-auto pl-5 w-1/2 md:w-auto transition-all duration-500 ease-in bg-zinc-800 ${abierto ? 'top-20 opacity-100 z-1' : 'top-[-500] z-[-2]'} md:opacity-100`}>
                     {
                         Links.map((item) => (
                             <li key={item.seccion} className='md:ml-8 text-base'>

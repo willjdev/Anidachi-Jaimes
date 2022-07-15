@@ -36,7 +36,7 @@ function ItemCount({initial, stockP, onAdd}) {
   return (
         <div className='flex w-full h-28 justify-evenly'>
             <div className='flex flex-col justify-center w-5/12 h-auto'>
-                    <div className='flex flex-row items-center justify-around w-full h-2/5'>
+                    {conditionAdd && <div className='flex flex-row items-center justify-around w-full h-2/5'>
                         <button 
                         onClick={restar} 
                         className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
@@ -48,7 +48,10 @@ function ItemCount({initial, stockP, onAdd}) {
                         className='w-2/5 h-full flex flex-col items-center justify-center bg-teal-600'>
                             <BiPlus/>
                         </button>
-                </div>
+                    </div>}
+                    {conditionFinish && <Link to='/' className='flex flex-col items-center justify-center text-base bg-orange-400 text-black w-10/12 h-3/5  ml-0 md:p-0 p-2'>
+                            <button>Ver productos</button>
+                    </Link>}
             </div>
             <div className='flex items-center justify-center w-5/12 h-auto'>
                     {conditionAdd && 
