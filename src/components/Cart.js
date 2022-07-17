@@ -5,25 +5,16 @@ import { Link } from 'react-router-dom'
 
 
 function Cart() {
-
-  const {cart, borrarItem, precioItem} = useContext(MiContexto);
-  const [pantalla, setPantalla] = useState(true)
-
-  useEffect(() => {
-
-    let tamañoPantalla = window.screen.width;
-    tamañoPantalla >= "768" ? setPantalla(true) : setPantalla(false);
-    
-  }, [])
+  
+  
+  const {cart, borrarItem, precioItem, vaciarCart} = useContext(MiContexto);
+  const [pantalla, setPantalla] = useState(true);
   
 
-
-console.log(cart)
-
-
-
-
-
+  useEffect(() => {
+    let tamañoPantalla = window.screen.width;
+    tamañoPantalla >= "768" ? setPantalla(true) : setPantalla(false);
+  }, [])
 
 
   return (
@@ -108,6 +99,9 @@ console.log(cart)
                   Checkout
                 </button>
               </Link>
+              <button onClick={() => vaciarCart()} className='w-full h-16 flex items-center justify-center text-base font-semibold text-black bg-orange-400 mt-2'>
+                  Vaciar carrito
+                </button>
           </div>
           </div>
 
@@ -172,6 +166,9 @@ console.log(cart)
               Checkout
             </button>
           </Link>
+          <button onClick={() => vaciarCart()} className='w-11/12 h-16 mb-4 flex items-center justify-center text-xl font-semibold text-black bg-orange-400 mt-2'>
+              Vaciar carrito
+          </button>
 
         </section>
 

@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContext from './context/CartContext';
 import { initializeApp } from "firebase/app";
 import Checkout from './components/Checkout';
+import Footer from './components/Footer';
 
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path='/checkout/' element={<Checkout/>} />
 
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </CartContext>
     </>
