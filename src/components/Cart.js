@@ -145,7 +145,7 @@ function Cart() {
                 Eliminar
               </div>
               <div className='text-xl font-medium mt-5'>
-                Total: <span className='text-xl font-semibold'>${item.price * item.quantity}</span>
+                Total: <span className='text-xl font-semibold'>${(item.price * item.quantity).toFixed(2)}</span>
               </div>
             </div>
           )) 

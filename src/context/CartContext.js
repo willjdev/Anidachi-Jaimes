@@ -1,5 +1,5 @@
 import React from 'react'
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
 
 export const MiContexto = createContext();
 
@@ -9,6 +9,23 @@ const {Provider} = MiContexto;
 export default function CartContext({children}) {
 
   const [cart, setCart] = useState([]);
+  const [actualizador, setActualizador] = useState();
+
+  /* useEffect(() => {
+    if (JSON.parse(localStorage.getItem("orden"))) {
+      setCart(JSON.parse(localStorage.getItem("orden")))
+    } else {
+      setCart([])
+    }
+  }, []) */
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("orden"))) {
+      setCart(JSON.parse(localStorage.getItem("orden")))
+    }
+  }, [actualizador])
+  
+
+console.log(cart)
     
   const estaEnCart = (id) => {
     return cart.some(item => item.id === id)
@@ -19,16 +36,25 @@ export default function CartContext({children}) {
       ...producto, quantity
     }
     if (cart.length == 0) {
-      setCart([nuevoObj])
+      //setCart([nuevoObj])
+      localStorage.setItem("orden", JSON.stringify([nuevoObj]))
+      setActualizador(1);
     } else {
       if (estaEnCart(nuevoObj.id)) {
         const revisarProducto = cart.find(item => item.id === nuevoObj.id)
         const indexProducto = cart.indexOf(revisarProducto);
         const arrayTemp = [...cart];
         arrayTemp[indexProducto].quantity += quantity;
-        setCart(arrayTemp);
+        if (arrayTemp[indexProducto].quantity > arrayTemp[indexProducto].stock) {
+          arrayTemp[indexProducto].quantity -= quantity;
+        }
+        //setCart(arrayTemp);
+        localStorage.setItem("orden", JSON.stringify(arrayTemp))
+        setActualizador(2)
       } else {
-        setCart([...cart, nuevoObj]);
+        //setCart([...cart, nuevoObj]);
+        localStorage.setItem("orden", JSON.stringify([...cart, nuevoObj]))
+        setActualizador(3)
       }
     }
     //console.log(cart)
@@ -36,10 +62,15 @@ export default function CartContext({children}) {
 
   const vaciarCart = () => {
     setCart([]);
+    localStorage.clear();
+    setActualizador(4)
   };
 
   const borrarItem = (id) => {
-    return setCart(cart.filter(item => item.id !== id));
+    //setCart(cart.filter(item => item.id !== id));
+    localStorage.clear(); 
+    localStorage.setItem("orden", JSON.stringify(cart.filter(item => item.id !== id)));
+    setActualizador(5)
   };
 
   const cantItem = () => {
