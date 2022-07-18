@@ -11,13 +11,7 @@ export default function CartContext({children}) {
   const [cart, setCart] = useState([]);
   const [actualizador, setActualizador] = useState();
 
-  /* useEffect(() => {
-    if (JSON.parse(localStorage.getItem("orden"))) {
-      setCart(JSON.parse(localStorage.getItem("orden")))
-    } else {
-      setCart([])
-    }
-  }, []) */
+  
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("orden"))) {
       setCart(JSON.parse(localStorage.getItem("orden")))
@@ -25,7 +19,6 @@ export default function CartContext({children}) {
   }, [actualizador])
   
 
-console.log(cart)
     
   const estaEnCart = (id) => {
     return cart.some(item => item.id === id)

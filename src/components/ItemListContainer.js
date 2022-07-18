@@ -24,7 +24,6 @@ function ItemListContainer() {
       getDocs(collectionProductos)
       .then((res) => {
       setProdutosDb(res.docs.map(doc => ({id: doc.id, ...doc.data()})));
-      console.log(productosDb)
       })
       .catch((error) => {
         setError(error);
