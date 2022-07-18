@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# E-commerce desarrollado React.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto se desarrolló como practica del curso de React.js de [Coderhouse](https://www.coderhouse.com/).
 
-## Available Scripts
+## Cómo visualizar este proyecto localmente
 
-In the project directory, you can run:
+_Requiere la ultima versíon de Node.js_
 
-### `npm start`
+1. Clonar este proyecto desde el respositorio
+2. Utilizar el siguiente comando en el directorio de la carpeta del proyecto:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```sh
+npm start
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Puedes encontrar el deploy del proyecto en el siguiente [aquí]()
 
-### `npm test`
+### Librerías y frameworks utilizados
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Tailwind CSS](https://tailwindcss.com/): Framework de CSS que prima la utilidad
 
-### `npm run build`
+```sh
+npm install -D tailwindcss postcss autoprefixer
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[react-icons](https://react-icons.github.io/react-icons/): Permite incluir iconos populares en proyectos con React.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+npm install react-icons --save
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[react-router-dom](https://v5.reactrouter.com/web/guides/quick-start): Paquete que implementa navegación dinámica en una app web
 
-### `npm run eject`
+```sh
+npm add react-router-dom
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[Firebase](https://firebase.google.com/): Plataforma que brinda herramientas para desarrollar apps de calidad. Entre estas herramientas se encuentra el almacen y gestión de datos y documentos
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+npm install firebase
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Tecnologias implementadas
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<p align="left"><a href="https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/HTML_basics" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/html5/html5-original.svg" width="40" height="40" alt="html5"></a><a href="https://tailwindcss.com/" target="_blank"><img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.79614a5f61617ba49a0891494521226b.svg" width="40" height="40" alt="Tailwind CSS"></a><a href="https://es.reactjs.org/" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/react/react-original.svg" width="40" height="40" alt="React"></a><a href="https://www.w3schools.com/js/default.asp" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/javascript/javascript-original.svg" width="40" height="40" alt="JavaScript"></a><a href="https://firebase.google.com/" target="_blank"><img src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-plain.svg" width="40" height="40" alt="Firebase"></a><a href="https://git-scm.com/" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/git/git-original.svg" width="40" height="40" alt="Git"></a><a href="https://github.com/" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/github/github-original.svg" width="40" height="40" alt="GitHub"></a></p>
 
-## Learn More
+### Contacto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Puedes contactar conmigo por los siguientes medios:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Email: william.jaimesfontalvo@gmail.com
+- [Linkedin](https://www.linkedin.com/in/william-jaimes-fontalvo/)
+- [Twitter](https://twitter.com/willjdev)
+- [GitHub](https://github.com/willjdev)
