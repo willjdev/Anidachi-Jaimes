@@ -10,11 +10,10 @@ function NavBar () {
         {seccion: "Accesorios", link:"/category/accessory"}
     ]
     const [abierto, setAbierto] = useState(false);
-    let hola = `border border-black md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-2]
-                left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${abierto ? 'top-20 opacity-100 ' : 'top-[-490px]'} md:opacity-100 opacity-0`;
+    let hola = `md:flex md:flex-row md:items-center md:h-auto h-40 flex flex-col items-start justify-around md:static md:pb-0 absolute pb-4 left-2 md:z-auto pl-5 w-1/2 md:w-auto transition-all duration-500 ease-in bg-zinc-800 ${abierto ? 'top-20 opacity-100 z-1' : 'top-[-500] z-[-2]'} md:opacity-100`;
 
     return (<>
-        <nav className='shadow-md w-full top-0 left-0'>
+        <nav className='shadow-md w-full h-auto top-0 left-0'>
             <div className='flex md:flex items-center justify-between bg-zinc-800 py-4 md:px-10 px-7'>
                 <Link to="/" >
                     <div className='font-bold text-2x1 cursor-pointer flex items-center  text-white'>
@@ -24,20 +23,23 @@ function NavBar () {
                         Anidachi
                     </div>
                 </Link>
-                <div onClick={() => setAbierto(!abierto)} className='text-3xl cursor-pointer md:hidden text-white'>
-                    {abierto ? <IoClose/> : <IoMenu/>}
-                </div>
 
-                <ul className={`md:flex md:flex-row md:items-center md:h-auto h-40 flex flex-col items-start justify-around md:static md:pb-0 absolute pb-4 left-2 md:z-auto pl-5 w-1/2 md:w-auto transition-all duration-500 ease-in bg-zinc-800 ${abierto ? 'top-20 opacity-100 z-1' : 'top-[-500] z-[-2]'} md:opacity-100`}>
-                    {
-                        Links.map((item) => (
-                            <li key={item.seccion} className='md:ml-8 text-base'>
-                                <Link to={item.link} className='text-white hover:text-gray-400 duration-500'>{item.seccion}</Link>
-                            </li>
-                        ))
-                    }
+                <div className='md:flex flex justify-end gap-5 md:gap-0'>
+                    <div onClick={() => setAbierto(!abierto)} className='text-3xl cursor-pointer md:hidden text-white'>
+                        {abierto ? <IoClose/> : <IoMenu/>}
+                    </div>
+
+                    <ul className={`md:flex md:flex-row md:items-center md:h-auto md:pb-0 md:z-auto flex-col absolute top-14 md:static md:p-0 md:w-auto transition-all duration-500 ease-in h-auto p-4 left-0 w-full bg-zinc-800 ${abierto ? 'top-14 opacity-100 z-1' : 'top-[-14] z-[-2]'} md:opacity-100`}>
+                        {
+                            Links.map((item) => (
+                                <li key={item.seccion} className='md:ml-8 text-base mb-4 md:mb-0'>
+                                    <Link to={item.link} className='text-white hover:text-gray-400'>{item.seccion}</Link>
+                                </li>  
+                            ))
+                        }
+                    </ul>
                     <div className='md:ml-8 w-fit text-white'><CartWidget/></div>
-                </ul>
+                </div>
             </div>
         </nav>
     </>)

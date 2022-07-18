@@ -110,7 +110,7 @@ function Cart() {
       </section> : 
 
 
-      <section className='w-full h-48 flex flex-col items-center justify-center gap-8 bg-white'>
+      <section className='w-full h-screen flex flex-col items-center justify-center gap-8 bg-white'>
         <div className='text-lg font-semibold'>Carrito vacío</div>
         <Link to='/' ><button className='w-40 h-20 text-black bg-orange-400 font-semibold'>Ver productos</button></Link>
       </section>
@@ -174,7 +174,7 @@ function Cart() {
 
         :
 
-        <section className='w-full h-48 flex flex-col items-center justify-center gap-8 bg-white'>
+        <section className='w-full h-screen flex flex-col items-center justify-center gap-8 bg-white'>
           <div className='text-lg font-semibold'>Carrito vacío</div>
           <Link to='/' ><button className='w-40 h-20 text-black bg-orange-400 font-semibold'>Ver productos</button></Link>
       </section>
