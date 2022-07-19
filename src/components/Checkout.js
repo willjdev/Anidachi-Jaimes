@@ -135,12 +135,13 @@ export default function Checkout() {
         </section>}
 
         {presBtn && 
+        <div className='w-full h-screen flex flex-col items-center justify-center'>
           <div className='md:w-1/2 w-10/12 h-48 flex flex-col items-center justify-around border border-slate-400 rounded'>
             <h1 className='text-lg font-bold'>¡Orden completada!</h1>
             <h2 className='text-base text-center'>Este es tu id de orden: <span className='font-bold'>{ordenId}</span></h2>
             <h3 className='text-base'>¡Gracias por tu compra!</h3>
           </div>
-          
+        </div>
         }
 
         {!presBtn && <div className='w-11/12 h-auto flex flex-col my-4 items-center border-2 border-slate-200 rounded p-4'>
