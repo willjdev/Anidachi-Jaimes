@@ -16,7 +16,6 @@ export default function ItemDetail({producto}) {
   const onAdd = (count) => {
     añadirItem(producto, count);
     setQuantity(count);
-    console.log(JSON.stringify(cart))
   }
 
   

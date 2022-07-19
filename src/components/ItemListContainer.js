@@ -35,7 +35,6 @@ function ItemListContainer() {
       
       getDocs(collectionProductosFiltro).then((res) => {
         setProdutosDb(res.docs.map(doc => ({id: doc.id, ...doc.data()})));
-        console.log(productosDb)
       });
     }
     setLoading(false)

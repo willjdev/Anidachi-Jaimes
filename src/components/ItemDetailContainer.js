@@ -10,7 +10,6 @@ function ItemDetailContainer() {
   const {id} = useParams();
 
   
-  console.log(id)
   const [producto, setProducto] = useState();
   const [loading, setLoading] = useState(true);
   
@@ -21,7 +20,6 @@ function ItemDetailContainer() {
     getDoc(collectionProducto)
     .then((res) => {
       setProducto({...res.data(), id: res.id})
-      console.log({...res.data(), id: res.id})
       setLoading(false)
       })
       .catch((error) => {

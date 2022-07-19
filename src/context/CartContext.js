@@ -43,14 +43,13 @@ export default function CartContext({children}) {
         }
         //setCart(arrayTemp);
         localStorage.setItem("orden", JSON.stringify(arrayTemp))
-        setActualizador(2)
+        setActualizador(arrayTemp)
       } else {
         //setCart([...cart, nuevoObj]);
         localStorage.setItem("orden", JSON.stringify([...cart, nuevoObj]))
-        setActualizador(3)
+        setActualizador([...cart, nuevoObj])
       }
     }
-    //console.log(cart)
   };
 
   const vaciarCart = () => {
@@ -63,7 +62,7 @@ export default function CartContext({children}) {
     //setCart(cart.filter(item => item.id !== id));
     localStorage.clear(); 
     localStorage.setItem("orden", JSON.stringify(cart.filter(item => item.id !== id)));
-    setActualizador(5)
+    setActualizador(cart.filter(item => item.id !== id))
   };
 
   const cantItem = () => {

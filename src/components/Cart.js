@@ -2,19 +2,32 @@ import React, { useContext, useEffect, useState } from 'react'
 import { BsXLg } from "react-icons/bs";
 import { MiContexto } from '../context/CartContext';
 import { Link } from 'react-router-dom'
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 function Cart() {
   
   
   const {cart, borrarItem, precioItem, vaciarCart} = useContext(MiContexto);
   const [pantalla, setPantalla] = useState(true);
-  
+  const MySwal = withReactContent(Swal)
 
   useEffect(() => {
     let tamañoPantalla = window.screen.width;
     tamañoPantalla >= "768" ? setPantalla(true) : setPantalla(false);
   }, [])
+
+  const alertaBorrado = () => {
+        MySwal.fire({
+                title: <p>Producto eliminado</p>,
+                toast: true,
+                position: 'bottom-end',
+                showConfirmButton: false,
+                timer: 2000,
+                background: "#f0921f",
+                color: "#141414"
+            })
+    }
 
 
   return (
@@ -23,7 +36,7 @@ function Cart() {
       
       pantalla ?
 
-      cart.length != 0 ? <section className='w-full h-screen flex flex-col items-center z-1 bg-white'>
+      cart.length != 0 ? <section className='w-full h-full flex flex-col items-center z-1 bg-white'>
         <div className='w-10/12 h-auto flex flex-col'>
           <div className='w-full h-20 border-b-2 border-slate-200 flex items-center text-lg font-bold '>
           <h1>Tu carrito</h1>
@@ -68,7 +81,7 @@ function Cart() {
                   </div>
 
                   <div className='w-8 h-full flex justify-center items-start pt-4'>
-                    <BsXLg className='cursor-pointer' onClick={() => borrarItem(item.id)}/>
+                    <BsXLg className='cursor-pointer' onClick={() => {borrarItem(item.id); alertaBorrado()}}/>
                   </div>
                   </div>
                   </>
@@ -141,7 +154,7 @@ function Cart() {
               <div className='self-start text-sm mt-1'>
                 Precio: $<span  className='text-base font-medium'>{item.price}</span>
               </div>
-              <div onClick={() => borrarItem(item.id)} className='self-start text-sm mt-1 italic text-gray-500 cursor-pointer underline'>
+              <div onClick={() => {borrarItem(item.id); alertaBorrado()}} className='self-start text-sm mt-1 italic text-gray-500 cursor-pointer underline'>
                 Eliminar
               </div>
               <div className='text-xl font-medium mt-5'>

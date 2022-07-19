@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { BiMinus, BiPlus } from "react-icons/bi";
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 function ItemCount({initial, stockP, onAdd}) {
@@ -8,25 +10,38 @@ function ItemCount({initial, stockP, onAdd}) {
     const [count, setCount] = useState(initial);
     const [conditionAdd, setConditionAdd] = useState(true);
     const [conditionFinish, setConditionFinish] = useState(false);
-    
 
-    
+    const MySwal = withReactContent(Swal)
 
+    const alertaAñadido = () => {
+        MySwal.fire({
+                title: <p>Producto añadido a carrito</p>,
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                background: "#f0921f",
+                color: "#141414"
+            })
+    }
+ 
     const sumar = () => {
         if (count < stockP) {
             setCount(count + 1);
         } else {
-            alert("No hay más unidades disponibles")
+            MySwal.fire({
+                title: <p>No hay mas unidades</p>
+            })
         }
-        //count < stock ? (setCount(count + 1) ): alert("No pueden añadirse más productos");
     }
     const restar = () => {
         if (count > initial) {
             setCount(count - 1);
         } else {
-            alert("No disponible")
+            MySwal.fire({
+                title: <p>No disponible</p>
+            })
         }
-        //count > initial ? setCount(count - 1) : alert("No pueden retirarse productos")
     }
     const visibilidadBoton = () => {
         setConditionAdd(false);
@@ -56,7 +71,7 @@ function ItemCount({initial, stockP, onAdd}) {
             <div className='flex items-center justify-center w-5/12 h-auto'>
                     {conditionAdd && 
                         <button 
-                        onClick={() => {onAdd(count); visibilidadBoton()}} 
+                        onClick={() => {onAdd(count); alertaAñadido();visibilidadBoton()}} 
                         className='flex flex-col items-center justify-center text-base bg-orange-400 text-black w-10/12 h-3/5 ml-0 md:p-0 p-2'>
                             Añadir al carrito
                         </button>}

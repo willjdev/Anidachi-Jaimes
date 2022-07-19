@@ -2,10 +2,13 @@ import React, { useContext, useState } from 'react'
 import { MiContexto } from '../context/CartContext'
 import { addDoc, collection, getFirestore} from 'firebase/firestore';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export default function Checkout() {
 
   const {cart, precioItem, vaciarCart} = useContext(MiContexto);
+  const MySwal = withReactContent(Swal)
 
   const db = getFirestore();
   const orderCollection = collection(db, 'orders');
@@ -67,7 +70,9 @@ export default function Checkout() {
     validateTel();
     
     if (!verificacionN || !verificacionE || !verificacionT) {
-      alert("Verificar campos")
+      MySwal.fire({
+        title: <p>Verifique los campos</p>
+      })
       return;
     }
 
@@ -103,8 +108,8 @@ export default function Checkout() {
 
 
   return (
-    
-     <div className='w-full h-auto pt-4 flex flex-col items-center justify-center bg-white'>
+    <>
+     {cart.length != 0 ? <div className='w-full h-auto pt-4 flex flex-col items-center justify-center bg-white'>
         {!presBtn && 
         <section className='md:w-2/5 w-11/12 md:h-full h-auto flex flex-col items-center justify-around border-2 border-slate-200 rounded md:p-4'>
           <h1 className='font-bold text-lg md:my-0 my-4' >Completar orden</h1>
@@ -118,7 +123,7 @@ export default function Checkout() {
 
             <label className='md:w-2/3 w-10/12 mb-3 mt-3 text-left'>Teléfono</label>
             <input onChange={(e) => {setTelefono(e.target.value)}} type='tel' className='md:w-2/3 w-10/12 h-8 border border-slate-400 rounded pl-2' placeholder=' Ingresa tu teléfono' required/>
-            {validarTel && <div className='italic text-red-500 mt-1'>Teléfono no valido</div>}
+            {validarTel && <div className='italic text-red-500 mt-1'>Teléfono no valido *10 dígitos</div>}
 
             <label className='md:w-2/3 w-10/12 mb-3 mt-3 text-left'>Email</label>
             <input onChange={(e) => {setEmail(e.target.value)}} type='email' className='md:w-2/3 w-10/12 h-8 border border-slate-400 rounded pl-2' placeholder=' Ingresa tu email' required/>
@@ -169,6 +174,11 @@ export default function Checkout() {
           </Link>
         </div>}
     </div>
-    
+    :
+    <section className='w-full h-screen flex flex-col items-center justify-center gap-8 bg-white'>
+          <div className='text-lg font-semibold'>No hay productos por comprar</div>
+          <Link to='/' ><button className='w-40 h-20 text-black bg-orange-400 font-semibold'>Ver productos</button></Link>
+      </section>}
+    </>
   )
 }
