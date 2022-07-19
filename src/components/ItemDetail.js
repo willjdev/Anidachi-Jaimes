@@ -23,15 +23,15 @@ export default function ItemDetail({producto}) {
   return (
     <>
       {images && (
-        <section className='md:w-3/4 w-full h-screen p-2 bg-white shadow-md md:flex md:flex-row flex flex-col items-center justify-around'>
+        <section className='md:w-3/4 w-full h-full p-2 bg-white shadow-md md:flex md:flex-row flex flex-col items-center justify-around'>
           <div className='md:w-1/2 w-full md:h-full h-1/3 flex md:flex-col flex-row items-center justify-evenly '>
             <div id='imagen' className='md:w-80 md:h-80 w-40 h-1/6 flex items-center justify-center md:mb-2 mb-0'>
               <img className='md:max-w-full md:max-h-full w-auto h-auto' src={cambioImg0} alt="producto"/>
             </div>
-            {images[1] && <div id='imagenes' className='md:w-96 md:h-fit md:p-2 flex md:flex-row flex-col gap-3 md:gap-0 justify-around items-center md:border-t md:border-black '>
-              {images[1] && <img src={cambioImg1} onClick={() => {setCambioImg1(cambioImg0);setCambioImg0(cambioImg1);}} className='md:w-1/4 w-3/4 md:h-auto h-20 cursor-pointer' alt='producto'/>}
-              {images[2] && <img src={cambioImg2} onClick={() => {setCambioImg2(cambioImg0);setCambioImg0(cambioImg2);}} className='md:w-1/4 w-3/4 md:h-auto h-20 cursor-pointer' alt='producto'/>}
-              {images[3] && <img src={cambioImg3} onClick={() => {setCambioImg3(cambioImg0);setCambioImg0(cambioImg3);}} className='md:w-1/4 w-3/4 md:h-auto h-20 cursor-pointer' alt='producto'/>}
+            {images[1] && <div id='imagenes' className='md:w-96 w-40 md:h-fit h-auto md:p-2 flex md:flex-row flex-col gap-3 md:gap-0 justify-around items-center md:border-t md:border-black '>
+              {images[1] && <img src={cambioImg1} onClick={() => {setCambioImg1(cambioImg0);setCambioImg0(cambioImg1);}} className='md:w-1/4 w-3/5 md:h-auto h-auto cursor-pointer mt-2 md:mt-0' alt='producto'/>}
+              {images[2] && <img src={cambioImg2} onClick={() => {setCambioImg2(cambioImg0);setCambioImg0(cambioImg2);}} className='md:w-1/4 w-3/5 md:h-auto h-auto cursor-pointer mt-2 md:mt-0' alt='producto'/>}
+              {images[3] && <img src={cambioImg3} onClick={() => {setCambioImg3(cambioImg0);setCambioImg0(cambioImg3);}} className='md:w-1/4 w-3/5 md:h-auto h-auto cursor-pointer mt-2 md:mt-0' alt='producto'/>}
             </div>}
           </div>
           <div className='md:w-1/2 md:h-full w-full p-2 h-2/3 md:p-0 flex flex-col items-center justify-evenly'>

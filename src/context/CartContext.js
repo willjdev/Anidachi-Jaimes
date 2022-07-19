@@ -29,7 +29,6 @@ export default function CartContext({children}) {
       ...producto, quantity
     }
     if (cart.length == 0) {
-      //setCart([nuevoObj])
       localStorage.setItem("orden", JSON.stringify([nuevoObj]))
       setActualizador(1);
     } else {
@@ -41,11 +40,9 @@ export default function CartContext({children}) {
         if (arrayTemp[indexProducto].quantity > arrayTemp[indexProducto].stock) {
           arrayTemp[indexProducto].quantity -= quantity;
         }
-        //setCart(arrayTemp);
         localStorage.setItem("orden", JSON.stringify(arrayTemp))
         setActualizador(arrayTemp)
       } else {
-        //setCart([...cart, nuevoObj]);
         localStorage.setItem("orden", JSON.stringify([...cart, nuevoObj]))
         setActualizador([...cart, nuevoObj])
       }
@@ -59,7 +56,6 @@ export default function CartContext({children}) {
   };
 
   const borrarItem = (id) => {
-    //setCart(cart.filter(item => item.id !== id));
     localStorage.clear(); 
     localStorage.setItem("orden", JSON.stringify(cart.filter(item => item.id !== id)));
     setActualizador(cart.filter(item => item.id !== id))

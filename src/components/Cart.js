@@ -70,13 +70,13 @@ function Cart() {
 
                   <div className='w-4/12 h-full flex justify-center items-center'>
                     <div className='w-1/3 h-28 text-center text-base'>
-                      ${item.price}
+                      ${(item.price).toFixed(2)}
                     </div>
                     <div className='w-1/3 h-28 text-center text-base'>
                       {item.quantity}
                     </div>
                     <div className='w-1/3 h-28 text-center text-base'>
-                      ${item.price * item.quantity}
+                      ${(item.price * item.quantity).toFixed(2)}
                     </div>
                   </div>
 
@@ -90,7 +90,7 @@ function Cart() {
               {/* Subtotal */}
               <div className='w-11/12 h-20 border-b-2 border-slate-200 flex justify-end items-center gap-7 pr-4 text-base font-bold'>
                 <h2>Subtotal</h2>
-                <h2>${precioItem()}</h2>
+                <h2>${precioItem().toFixed(2)}</h2>
               </div>
             </div> 
 
@@ -102,7 +102,7 @@ function Cart() {
                 <div className='w-full h-2/4 text-lg font-bold flex items-center pl-5'>Resumen de orden</div>
                 <div className='w-full h-1/4 flex justify-between items-center px-5'>
                   <h2>Subtotal:</h2>
-                  <h2>${precioItem()}</h2>
+                  <h2>${precioItem().toFixed(2)}</h2>
                 </div>
                 <div className='w-full h-1/4 text-sm pl-5'>* Costo de envío gratis</div>
               </div>
@@ -152,7 +152,7 @@ function Cart() {
                 Cantidad: <span className='text-base font-medium'>{item.quantity}</span> 
               </div>
               <div className='self-start text-sm mt-1'>
-                Precio: $<span  className='text-base font-medium'>{item.price}</span>
+                Precio: $<span  className='text-base font-medium'>{(item.price).toFixed(2)}</span>
               </div>
               <div onClick={() => {borrarItem(item.id); alertaBorrado()}} className='self-start text-sm mt-1 italic text-gray-500 cursor-pointer underline'>
                 Eliminar

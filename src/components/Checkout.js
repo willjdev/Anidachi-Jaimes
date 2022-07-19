@@ -109,7 +109,7 @@ export default function Checkout() {
 
   return (
     <>
-     {cart.length != 0 ? <div className='w-full h-auto pt-4 flex flex-col items-center justify-center bg-white'>
+     <div className='w-full h-full pt-4 flex flex-col items-center justify-center bg-white'>
         {!presBtn && 
         <section className='md:w-2/5 w-11/12 md:h-full h-auto flex flex-col items-center justify-around border-2 border-slate-200 rounded md:p-4'>
           <h1 className='font-bold text-lg md:my-0 my-4' >Completar orden</h1>
@@ -174,11 +174,6 @@ export default function Checkout() {
           </Link>
         </div>}
     </div>
-    :
-    <section className='w-full h-screen flex flex-col items-center justify-center gap-8 bg-white'>
-          <div className='text-lg font-semibold'>No hay productos por comprar</div>
-          <Link to='/' ><button className='w-40 h-20 text-black bg-orange-400 font-semibold'>Ver productos</button></Link>
-      </section>}
     </>
   )
 }

@@ -5,7 +5,6 @@ import {getFirestore, getDoc, doc} from 'firebase/firestore';
 
 
 function ItemDetailContainer() {
-  let colores = ["#E24E42", "#E9B000", "#008F95", "#4717F6"]
 
   const {id} = useParams();
 

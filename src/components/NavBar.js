@@ -10,7 +10,7 @@ function NavBar () {
         {seccion: "Accesorios", link:"/category/accessory"}
     ]
     const [abierto, setAbierto] = useState(false);
-    let hola = `md:flex md:flex-row md:items-center md:h-auto h-40 flex flex-col items-start justify-around md:static md:pb-0 absolute pb-4 left-2 md:z-auto pl-5 w-1/2 md:w-auto transition-all duration-500 ease-in bg-zinc-800 ${abierto ? 'top-20 opacity-100 z-1' : 'top-[-500] z-[-2]'} md:opacity-100`;
+    
 
     return (<>
         <nav className='shadow-md w-full h-auto top-0 left-0'>
