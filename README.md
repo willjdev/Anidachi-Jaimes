@@ -16,8 +16,7 @@ npm start
 
 - Puedes encontrar el deploy del proyecto [aquí](https://anidachi-jaimes.vercel.app/)
 
-- Video prueba de funcionalidad
-<iframe src="https://player.vimeo.com/video/731585507?h=97b54bb123" width="640" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+- Video prueba de funcionalidad [aquí](https://player.vimeo.com/video/731585507?h=97b54bb123)
 
 ### Librerías y frameworks utilizados
 
