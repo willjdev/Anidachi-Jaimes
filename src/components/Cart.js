@@ -36,7 +36,7 @@ function Cart() {
       
       pantalla ?
 
-      cart.length != 0 ? <section className='w-full h-full flex flex-col items-center z-1 bg-white'>
+      cart.length != 0 ? <section className='w-full h-screen flex flex-col items-center z-1 bg-white md:mb-4'>
         <div className='w-10/12 h-auto flex flex-col'>
           <div className='w-full h-20 border-b-2 border-slate-200 flex items-center text-lg font-bold '>
           <h1>Tu carrito</h1>
@@ -100,7 +100,7 @@ function Cart() {
 
               <div className='w-full h-40 flex flex-col border-2 border-slate-200'>
                 <div className='w-full h-2/4 text-lg font-bold flex items-center pl-5'>Resumen de orden</div>
-                <div className='w-full h-1/4 flex justify-between items-center px-5'>
+                <div className='w-full h-1/4 flex justify-between items-center px-5 md:mb-5'>
                   <h2>Subtotal:</h2>
                   <h2>${precioItem().toFixed(2)}</h2>
                 </div>
